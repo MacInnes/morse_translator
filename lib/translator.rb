@@ -1,3 +1,5 @@
+require "pry"
+
 class Translator
 
   def initialize
@@ -56,4 +58,27 @@ class Translator
     end
     eng_to_morse(output.join)
   end
+
+  def morse_to_eng(input)
+    words = input.split("  ")
+    letters = words.map { |each| each.split(" ") }
+    # binding.pry
+    translated_array = letters.map do |word|
+      word.map do |letter|
+        letter = @dictionary.key(letter)
+      end
+    end
+    # binding.pry
+    output = translated_array.map do |word|
+      word = word.join
+    end
+    return output.join(" ")
+  end
+
+
+
+
+
+
+
 end
