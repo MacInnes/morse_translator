@@ -47,4 +47,13 @@ class Translator
     end
     return translated_array.join()
   end
+
+  def from_file(filename)
+    file = File.new(filename, "r")
+    output = []
+    while (line = file.gets)
+      output << line
+    end
+    eng_to_morse(output.join)
+  end
 end
