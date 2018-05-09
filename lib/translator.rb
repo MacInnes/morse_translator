@@ -39,4 +39,12 @@ class Translator
                     "0" => "-----",
                     " " => " "}
   end
+
+  def translate(input)
+    array = input.chars
+    translated_array = array.map do |each|
+      each = @dictionary[each]
+    end
+    return translated_array.join()
+  end
 end
