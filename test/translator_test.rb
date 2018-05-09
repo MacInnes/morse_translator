@@ -14,10 +14,17 @@ class TranslatorTest < Minitest::Test
   def test_translate_lowercase_letters
     translator = Translator.new
 
-    assert_equal ".-", translator.translate("a")
-    assert_equal "--..", translator.translate("z")
-    assert_equal "-....--..", translator.translate("bad")
-    refute_equal ".-", translator.translate("z")
+    assert_equal ".-", translator.eng_to_morse("a")
+    assert_equal "--..", translator.eng_to_morse("z")
+    assert_equal "-....--..", translator.eng_to_morse("bad")
+    refute_equal ".-", translator.eng_to_morse("z")
+  end
+
+  def test_translate_any_case_and_numbers
+    translator = Translator.new
+
+    assert_equal "......-...-..--- .-----.-..-..-..", translator.eng_to_morse("Hello World")
+    assert_equal "-......-.. .-.-.. ...-- ..........--....", translator.eng_to_morse("There are 3 ships")
   end
 
 end

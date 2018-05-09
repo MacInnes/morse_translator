@@ -40,10 +40,10 @@ class Translator
                     " " => " "}
   end
 
-  def translate(input)
+  def eng_to_morse(input)
     array = input.chars
     translated_array = array.map do |each|
-      each = @dictionary[each]
+      each = @dictionary[each.downcase]
     end
     return translated_array.join()
   end
